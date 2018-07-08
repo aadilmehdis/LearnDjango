@@ -5,4 +5,7 @@ from django.shortcuts import render
 
 #function based views
 def home(request):
-    return HttpResponse("Hello")
+    context = {
+        "html_var" : "PETA MELLARK"
+    }
+    return render(request, "base.html", context)
