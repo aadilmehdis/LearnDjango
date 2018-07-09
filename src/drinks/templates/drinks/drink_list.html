@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Drinks || {{ block.super }}{% endblock head_title %}
+
+{% block content %}
+    <h1>Drink List</h1>
+    <ul>
+        {% for object in object_list %}
+            <li>
+                <span>{{object.name}} || {{object.description}} || {{object.place_of_origin}}</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from drinks.views import home, about, contact, ContactView, ContactTemplateView
+from django.views.generic import TemplateView
+from drinks.views import drink_listview
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home/$', home),
-    url(r'^about/$', about),
-    url(r'^contact/$', ContactView.as_view()),
-    url(r'^contacttemplate/$', ContactTemplateView.as_view()),
+    url(r'^home/$', TemplateView.as_view(template_name='home.html')),
+    url(r'^drinks/$', drink_listview),
+    url(r'^about/$', TemplateView.as_view(template_name='about.html')),
+    url(r'^contact/$', TemplateView.as_view(template_name='contact.html')),
 ]

@@ -2,4 +2,11 @@
 
 {% block content %}
     <h1>Home</h1>
+    <ul>
+        {% for item in some_list %}
+        <li>
+            {{ item }}
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock content %}
