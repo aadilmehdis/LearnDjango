@@ -1,7 +1,7 @@
 import random
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from django.views import View
 # Create your views here.
 
 #function based views
@@ -21,3 +21,9 @@ def contact(request):
     context = {
     }
     return render(request, "contact.html", context)
+
+class ContactView(View):
+    def get(self, request, *args, **kwargs):
+        context = {}
+        print(kwargs)
+        return render(request, "contact.html", context)
