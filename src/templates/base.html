@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang=en>
-<head>
-    <title></title>
-</head>
-<body>
-    <p>Hello World</p>
-    <p>This is some context :  {{ html_var }}</p>
-</body>
+    <head>
+        <title>{% block head_title %} Cocktail {% endblock head_title %}</title>
+        {% include 'snippets/css.html'%}
+    </head>
+    <body>
+        {% include 'snippets/navbar.html' %}
+
+        <div class='container'>
+            {% block content %}{% endblock content %}
+        </div>
+
+        {% include 'snippets/js.html' %}
+    </body>
 </html>
