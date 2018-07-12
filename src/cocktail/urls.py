@@ -16,12 +16,18 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
-from drinks.views import drink_listview
+from drinks.views import (
+    drink_listview,
+    DrinkListView,
+    DrinkDetailView
+)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/$', TemplateView.as_view(template_name='home.html')),
-    url(r'^drinks/$', drink_listview),
+    url(r'^drinks/$', DrinkListView.as_view()),
+    url(r'^drinks/(?P<drink_id>\w+)/$', DrinkDetailView.as_view()),
+    # url(r'^drinks/(?P<slug>\w+)/$', DrinkListView.as_view()),
     url(r'^about/$', TemplateView.as_view(template_name='about.html')),
     url(r'^contact/$', TemplateView.as_view(template_name='contact.html')),
 ]

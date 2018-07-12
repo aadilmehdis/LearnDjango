@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block head_title %}Drinks || {{ block.super }}{% endblock head_title %} {% block content %}
+<h1>Drink Details</h1>
+<p>{{object.title}}</p>
+<p>{{object.description}}</p>
+<p>{{object.place_of_origin}}</p>
+{% endblock content%}
